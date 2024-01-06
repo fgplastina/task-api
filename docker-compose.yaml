@@ -1,0 +1,45 @@
+version: '3'
+services:
+  backend:
+    container_name: backend
+    restart: always
+    build:
+      context: ./task_tracker_backend
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    env_file:
+      - ./dev/.env
+    environment:
+        DOCKER: "1"
+        DATABASE_URL: "postgresql://postgres:postgres@task-tracker-postgresql/task-tracker-db"
+        DATABASE_REPLICA_URL: "postgres://postgres:postgres@task-tracker-postgresql/task-tracker-db" 
+        DEBUG_EMAIL: $(DEBUG_EMAIL)
+    networks:
+        default:
+            aliases:
+                - www.local.com.ar
+                - www.local.com
+    ports:
+        - "8000:8000"
+        - "8888:8888"
+    volumes:
+        - ./task_tracker_backend:/app
+    depends_on:
+      - task-tracker-postgresql 
+    stdin_open: true
+    tty: true
+  
+  task-tracker-postgresql:
+    container_name: task-tracker-postgresql
+    image: postgres:latest
+    restart: always
+    environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_DB: task-tracker-db 
+    volumes:
+      - ./dev/postgresql/task-tracker-data:/var/lib/postgresql/data
+
+networks:
+    default:
+        name: task-tracker-network
