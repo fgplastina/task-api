@@ -1,0 +1,14 @@
+databases[postgresql]==0.7.0
+asgiref==3.7.2
+async-timeout==4.0.3
+asyncpg==0.29.0
+databases==0.7.0
+Django==5.0.1
+django-filter==23.5
+djangorestframework==3.14.0
+greenlet==3.0.3
+Markdown==3.5.1
+psycopg2-binary==2.9.6
+pytz==2023.3.post1
+SQLAlchemy==1.4.51
+sqlparse==0.4.4
