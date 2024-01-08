@@ -51,6 +51,10 @@ clean:
 build: ## build the server
 	docker compose build
 
+.PHONY: down 
+down: ## Starts the server
+	docker compose down
+
 .PHONY: start
 start: ## Starts the server
 	docker compose up
@@ -67,7 +71,7 @@ attach: ## attach container
 migrate: ## Run the migrations
 	docker exec -it $(CONTAINER_NAME) python manage.py migrate
 
-.PHONY: makemigratations
+.PHONY: makemigrations
 makemigrations: ## Run the migrations
 	docker exec -it $(CONTAINER_NAME) python manage.py makemigrations 
 
