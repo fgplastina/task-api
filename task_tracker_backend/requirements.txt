@@ -12,3 +12,4 @@ psycopg2-binary==2.9.6
 pytz==2023.3.post1
 SQLAlchemy==1.4.51
 sqlparse==0.4.4
+django-environ==0.8.1
