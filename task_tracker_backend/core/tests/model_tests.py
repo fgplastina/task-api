@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.utils import timezone
 
-from .models import Task
+from core.models import Task
 
 
 class TaskModelTest(TestCase):
