@@ -6,6 +6,7 @@ GIT_REVISION = `git rev-parse HEAD`
 PSQL_CONTAINER_NAME = task-tracker-postgresql 
 CONTAINER_NAME = backend 
 DATABASE_NAME = task-tracker-postgresql
+FIXTURE_FILE = "task_fixture.json"
 
 # Introspection targets
 # ---------------------
@@ -71,8 +72,12 @@ attach: ## attach container
 migrate: ## Run the migrations
 	docker exec -it $(CONTAINER_NAME) python manage.py migrate
 
+.PHONY: loaddata 
+loaddata: ## Load fixture data
+	docker exec -it $(CONTAINER_NAME) python manage.py loaddata ${FIXTURE_FILE}
+
 .PHONY: migrations
-migrations: ## Run the migrations
+migrations: ## Creatre migrations
 	docker exec -it $(CONTAINER_NAME) python manage.py makemigrations 
 
 .PHONY: psql
