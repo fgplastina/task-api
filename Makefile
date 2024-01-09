@@ -77,8 +77,13 @@ loaddata: ## Load fixture data
 	docker exec -it $(CONTAINER_NAME) python manage.py loaddata ${FIXTURE_FILE}
 
 .PHONY: migrations
-migrations: ## Creatre migrations
+migrations: ## Create migrations
 	docker exec -it $(CONTAINER_NAME) python manage.py makemigrations 
+
+
+.PHONY: tests
+tests: ## Run test
+	docker exec -it $(CONTAINER_NAME) python manage.py test $(args)
 
 .PHONY: psql
 psql: ## Connect to the database
