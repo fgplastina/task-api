@@ -71,8 +71,8 @@ attach: ## attach container
 migrate: ## Run the migrations
 	docker exec -it $(CONTAINER_NAME) python manage.py migrate
 
-.PHONY: makemigrations
-makemigrations: ## Run the migrations
+.PHONY: migrations
+migrations: ## Run the migrations
 	docker exec -it $(CONTAINER_NAME) python manage.py makemigrations 
 
 .PHONY: psql
