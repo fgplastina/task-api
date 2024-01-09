@@ -13,3 +13,5 @@ pytz==2023.3.post1
 SQLAlchemy==1.4.51
 sqlparse==0.4.4
 django-environ==0.8.1
+django-fsm==2.8.1
+ipdb==0.13.13
