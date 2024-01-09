@@ -2,7 +2,7 @@
 ```bash
 git clone https://github.com/fgplastina/<app>/
 ```
-Build and run the application, it will be at http://localhost:8000/api/
+### Build and run the application, it will be at http://localhost:8000/api/
 ```bash
 make run
 ```
