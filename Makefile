@@ -4,7 +4,7 @@
 APP_NAME = "task-tracker"
 GIT_REVISION = `git rev-parse HEAD`
 PSQL_CONTAINER_NAME = task-tracker-postgresql 
-CONTAINER_NAME = backend 
+CONTAINER_NAME = task-tracker-backend
 DATABASE_NAME = task-tracker-postgresql
 FIXTURE_FILE = "task_fixture.json"
 
