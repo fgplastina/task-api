@@ -1,12 +1,14 @@
 import json
-from faker import Faker
-from datetime import timedelta
 import random
+from datetime import timedelta, timezone
+
+from faker import Faker
 
 fake = Faker()
 
 examples = []
 for i in range(1, 51):
+    created_date = fake.date_time_this_decade(tzinfo=timezone.utc)
     task = {
         "model": "core.task",
         "pk": i,
@@ -14,8 +16,9 @@ for i in range(1, 51):
             "name": fake.word(),
             "description": fake.text(),
             "estimated": str(timedelta(minutes=random.randint(30, 240))),
-            "state": random.choice(["planned", "completed", "in_progress"])
-        }
+            "state": random.choice(["planned", "completed", "in progress"]),
+            "created_date":created_date.isoformat(),
+        },
     }
     examples.append(task)
 
