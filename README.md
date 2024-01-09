@@ -1,6 +1,6 @@
 ## Clone the repo 
 ```bash
-git clone https://github.com/fgplastina/<app>/
+git clone https://github.com/fgplastina/task-api/
 ```
 ### Build and run the application, it will be at http://localhost:8000/api/
 ```bash
