@@ -60,7 +60,7 @@ class TaskViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        serializer = self.get_serializer(data=request.data)
+        serializer = self.get_serializer(task)
         task.complete()
         task.save()
 
