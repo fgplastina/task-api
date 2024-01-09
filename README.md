@@ -2,12 +2,15 @@
 ```bash
 git clone https://github.com/fgplastina/task-api/
 ```
-### Build and run the application, it will be at http://localhost:8000/api/
+
+ 
+## Setting up the project
+###### Build and run the application, it will be deployed at http://localhost:8000/api/
 ```bash
 make run
 ```
 
-## Setting up the project
+
 ###### Run migrations
 ```bash
 make migrate
@@ -16,7 +19,7 @@ make migrate
 ```bash
 make loaddata
 ```
-## Setting up the project
+## Testing the app
 ###### Run all tests
 ```bash
 make tests args=core.tests
